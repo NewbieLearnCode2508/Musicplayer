@@ -48,36 +48,6 @@ const app = {
                 img: './asset/img/Sailầmlớnnhất.png'
             },
             {
-                name: 'Sai lầm lớn nhất',
-                singer: 'Phát Hồ',
-                path: './asset/song/Sailầmcủaanh.mp3',
-                img: './asset/img/Sailầmlớnnhất.png'
-            },
-            {
-                name: 'Sai lầm lớn nhất',
-                singer: 'Phát Hồ',
-                path: './asset/song/Sailầmcủaanh.mp3',
-                img: './asset/img/Sailầmlớnnhất.png'
-            },
-            {
-                name: 'Sai lầm lớn nhất',
-                singer: 'Phát Hồ',
-                path: './asset/song/Sailầmcủaanh.mp3',
-                img: './asset/img/Sailầmlớnnhất.png'
-            },
-            {
-                name: 'Sai lầm lớn nhất',
-                singer: 'Phát Hồ',
-                path: './asset/song/Sailầmcủaanh.mp3',
-                img: './asset/img/Sailầmlớnnhất.png'
-            },
-            {
-                name: 'Sai lầm lớn nhất',
-                singer: 'Phát Hồ',
-                path: './asset/song/Sailầmcủaanh.mp3',
-                img: './asset/img/Sailầmlớnnhất.png'
-            },
-            {
                 name: 'Cô dâu đẹp nhất',
                 singer: 'Phát Hồ',
                 path: './asset/song/Côdâuđẹpnhất.mp3',
