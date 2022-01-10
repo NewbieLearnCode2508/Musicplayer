@@ -43,27 +43,45 @@ const app = {
             },
             {
                 name: 'Sai lầm lớn nhất',
-                singer: 'Phát Hồ',
+                singer: 'Đình Dũng',
                 path: './asset/song/Sailầmcủaanh.mp3',
                 img: './asset/img/Sailầmlớnnhất.png'
             },
             {
                 name: 'Cô dâu đẹp nhất',
-                singer: 'Phát Hồ',
+                singer: 'Hai bạn nam',
                 path: './asset/song/Côdâuđẹpnhất.mp3',
                 img: './asset/img/Côdâuđẹpnhất.png'
             },
             {
                 name: 'Let her go',
-                singer: 'Phát Hồ',
+                singer: 'Passenger',
                 path: './asset/song/Lethergo.mp3',
                 img: './asset/img/Lethergo.png'
             },
             {
                 name: 'Khuê mộc lan',
-                singer: 'Phát Hồ',
+                singer: 'Hương Ly & Jombie',
                 path: './asset/song/Khuêmộclan.mp3',
                 img: './asset/img/Khuêmộclan.png'
+            },
+            {
+                name: 'That girl',
+                singer: 'Olly Murs',
+                path: './asset/song/That Girl.mp3',
+                img: './asset/img/That Girl.png'
+            },
+            {
+                name: 'sakura anata ni deaete',
+                singer: 'Night core',
+                path: './asset/song/Sakura anata ni deaete yokatta.mp3',
+                img: './asset/img/sakura anata ni deaete.png'
+            },
+            {
+                name: 'Lối Nhỏ',
+                singer: 'Đen Vâu',
+                path: './asset/song/Đen - Lối Nhỏ.mp3',
+                img: './asset/img/Lối nhỏ.png'
             }
     ],
     setConfig: function(key, value) {
