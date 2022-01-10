@@ -184,7 +184,7 @@ const app = {
         playlist.onclick = function(e) {
             const songNode = e.target.closest('.song:not(.active)');
 
-            if(songNode || e.target.closest('.option')) {
+            if(songNode || !e.target.closest('.option')) {
                 
                 if(songNode) {
                     _this.currentIndex = Number(songNode.getAttribute('data-index'));
