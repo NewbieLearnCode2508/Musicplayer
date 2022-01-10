@@ -69,7 +69,7 @@ const app = {
                 name: 'That girl',
                 singer: 'Olly Murs',
                 path: './asset/song/That Girl.mp3',
-                img: './asset/img/That Girl.png'
+                img: './asset/img/That girl.png'
             },
             {
                 name: 'sakura anata ni deaete',
