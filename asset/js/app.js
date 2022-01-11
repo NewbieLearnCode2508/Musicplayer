@@ -131,7 +131,6 @@ const app = {
                 player.classList.add('playing');
             }
             _this.isPlay = !_this.isPlay;
-            console.log(_this.isPlay);
         }
 
         //Tiến độ play và tua
@@ -146,6 +145,22 @@ const app = {
         processPlay.onchange = (e)=> {
             const seekTime = (audio.duration / 100) * e.target.value
             audio.currentTime = seekTime;
+        }
+
+        //Xử lý nhấn tua bài hát
+        window.onkeydown = (e)=> {
+            if(e.keyCode === 39) {
+                const seekTime =    audio.currentTime + 10;
+                audio.currentTime = seekTime;
+            }
+
+            if(e.keyCode === 37) {
+                let seekTime =    audio.currentTime - 10;
+                if(seekTime < 0) {
+                    seekTime = 0;
+                }
+                audio.currentTime = seekTime;
+            }
         }
 
         //Xử lý khi chuyển bài hát
