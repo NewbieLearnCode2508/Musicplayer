@@ -120,13 +120,16 @@ header h2 {
   width: 100%;
   -webkit-appearance: none;
   height: 10px;
-  background: #d3d3d3;
   outline: none;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: transparent;
   opacity: 0.7;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
   cursor: pointer;
   margin: 8px 0;
+  z-index: 2;
 }
 
 .progress-line {
@@ -145,6 +148,10 @@ header h2 {
   background-color: var(--primary-color);
   cursor: pointer;
   border-radius: 50%;
+}
+
+.progress::-webkit-slider-runnable-track {
+  background-color: transparent;
 }
 
 /* PLAYLIST */
@@ -253,4 +260,17 @@ header h2 {
 
 .btn-volume.active .mute-volume{
   display: none;
+}
+
+@media (max-width: 1023px) {
+  #volume,
+  .progress-line,
+  .progress {
+    height: 20px;
+  }
+
+  .progress::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+  }
 }
