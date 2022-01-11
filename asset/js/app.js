@@ -21,11 +21,15 @@ const cdThumb = $('.cd-thumb');
 const audio = $('#audio');
 const playBtn = $('.btn-toggle-play');
 const processPlay = $('.progress');
+const progressLine = $('.progress-line');
 const nextBtn = $('.btn-next');
 const prevBtn = $('.btn-prev');
 const repeatBtn = $('.btn-repeat');
 const randomBtn = $('.btn-random');
 const playlist = $('.playlist');
+const volume = $('#volume');
+const volumeBtn = $('.btn-volume');
+const volumeAudio = audio.volume;
 var lastSongs = [];
 
 const app = {
@@ -33,6 +37,7 @@ const app = {
     isPlay: false,
     isRepeat: false,
     isRandom:false,
+    isMute: false,
     config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
     songs: [
             {
@@ -69,19 +74,19 @@ const app = {
                 name: 'That girl',
                 singer: 'Olly Murs',
                 path: './asset/song/That Girl.mp3',
-                img: './asset/img/That girl.png'
+                img: './asset/img/Thatgirl.png'
             },
             {
                 name: 'sakura anata ni deaete',
                 singer: 'Night core',
                 path: './asset/song/Sakura anata ni deaete yokatta.mp3',
-                img: './asset/img/sakura anata ni deaete.png'
+                img: './asset/img/sakuraanatanideaete.png'
             },
             {
                 name: 'Lối Nhỏ',
                 singer: 'Đen Vâu',
                 path: './asset/song/Đen - Lối Nhỏ.mp3',
-                img: './asset/img/Lối nhỏ.png'
+                img: './asset/img/Lốinhỏ.png'
             }
     ],
     setConfig: function(key, value) {
@@ -134,6 +139,7 @@ const app = {
             if (audio.duration) {
                 const processPercent = Math.floor(audio.currentTime / audio.duration * 100);
                 processPlay.value = processPercent;
+                progressLine.style.width = processPercent + '%';
             }
         }
 
@@ -216,6 +222,24 @@ const app = {
             }
         }
 
+        //Xử lý tăng giảm âm thanh
+        volume.onchange = function() {
+            _this.setVolume(volume.value); 
+        };
+
+        //Xử lý tắt bật âm thanh
+        volumeBtn.onclick = ()=> {
+            volumeBtn.classList.toggle('active');
+            _this.isMute = !_this.isMute;
+            if(_this.isMute === true) {
+               audio.muted = true;
+            }else {
+               audio.muted = false;
+            }
+        }
+    },
+    setVolume: function(currentVolume) {
+        audio.volume = Number(currentVolume) / 100;
     },
     loadConfig: function() {
         this.isRandom = this.config.isRandom;
