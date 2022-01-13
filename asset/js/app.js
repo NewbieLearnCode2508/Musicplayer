@@ -1,13 +1,18 @@
 
-//Render bài hát
-//Scroll thì thu nhỏ
-//CD quay
-//play / pause /seek
-//next / repeat
-//random song
-//active song
-//scroll active song into view
-//Play song when click
+//Render bài hát--> OK
+//Scroll thì thu nhỏ--> OK
+//CD quay--> OK
+//play / pause /seek--> OK
+//next / repeat--> OK
+//random song--> OK
+//active song--> OK
+//scroll active song into view--> OK
+//Play song when click--> OK
+//Nhấn để tua tới/lùi--> OK
+//chỉnh âm lượng tăng/ giảm/ tắt âm--> OK
+//Thanh tiến độ--> OK
+//Nút tua tới và lui
+//Hiệu ứng hover vào bài hát
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -87,7 +92,25 @@ const app = {
                 singer: 'Đen Vâu',
                 path: './asset/song/Đen - Lối Nhỏ.mp3',
                 img: './asset/img/Lốinhỏ.png'
-            }
+            },
+            {
+                name: 'Muốn Được cùng em',
+                singer: 'Đen Vâu',
+                path: './asset/song/Muốnđượccùngem.mp3',
+                img: './asset/img/Muốnđượccùngem.png'
+            },
+            {
+                name: 'Cô đơn bao lâu anh mới biết',
+                singer: 'Đen Vâu',
+                path: './asset/song/Cô đơn bao lâu anh mới biết.mp3',
+                img: './asset/img/Côđơnbaolâuanhmớibiết.png'
+            },
+            {
+                name: 'Sẽ chẳng yêu người khác đâu',
+                singer: 'Đen Vâu',
+                path: './asset/song/Sẽ chẳng yêu người khác đâu.mp3',
+                img: './asset/img/Sẽchẳngyêungườikhácđâu.png'
+            },
     ],
     setConfig: function(key, value) {
         this.config[key] = value;
