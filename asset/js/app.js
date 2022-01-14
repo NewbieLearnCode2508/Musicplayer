@@ -117,6 +117,24 @@ const app = {
                 path: './asset/song/Kiss Me More.mp3',
                 img: './asset/img/kissmemore.png'
             },
+            {
+                name: 'Khó vẽ nụ cười',
+                singer: 'Đạt G x DuUyên',
+                path: './asset/song/Khó Vẽ Nụ Cười.mp3',
+                img: './asset/img/Khóvẽnụcười.png'
+            },
+            {
+                name: 'Tình Đơn Phương',
+                singer: 'Edward Dương Nguyễn',
+                path: './asset/song/TÌNH ĐƠN PHƯƠNG ACOUSTIC.mp3',
+                img: './asset/img/Tìnhđơnphương.png'
+            },
+            {
+                name: 'Chưa bao giờ',
+                singer: 'Trung Quân',
+                path: './asset/song/Chua bao giờ.mp3',
+                img: './asset/img/Chưabaogiờ.png'
+            },
     ],
     setConfig: function(key, value) {
         this.config[key] = value;
@@ -151,7 +169,7 @@ const app = {
         //Xử lý khi click play music
         playBtn.onclick = function() {
             if (_this.isPlay) {
-                audio.pause();
+                _this.pauseSong();
                 cdThumbAnimate.pause();
                 player.classList.remove('playing');
             }else {
@@ -160,6 +178,17 @@ const app = {
                 player.classList.add('playing');
             }
             _this.isPlay = !_this.isPlay;
+        }
+
+        //Nhấn backspace để tạm ngưng
+        window.onkeyup = (e)=> {
+            if(e.keyCode === 32) {
+                if(_this.isPlay === true) {
+                    playBtn.click();
+                }else {
+                    playBtn.click();
+                }
+            }
         }
 
         //Tiến độ play và tua
@@ -215,7 +244,6 @@ const app = {
             }else {
                 _this.prevSong();
             }
-
             _this.loadCurrentSong();
             audio.play();
             _this.isPlay = true;
@@ -288,6 +316,9 @@ const app = {
     loadConfig: function() {
         this.isRandom = this.config.isRandom;
         this.isRepeat = this.config.isRepeat;
+    },
+    pauseSong: function() {
+        audio.pause();
     },
     scrollToActiveSong: function() {
         setTimeout(()=> {
