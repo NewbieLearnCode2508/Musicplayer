@@ -111,6 +111,12 @@ const app = {
                 path: './asset/song/Sẽ chẳng yêu người khác đâu.mp3',
                 img: './asset/img/Sẽchẳngyêungườikhácđâu.png'
             },
+            {
+                name: 'Kiss me more',
+                singer: 'Đen Vâu',
+                path: './asset/song/Kiss Me More.mp3',
+                img: './asset/img/kissmemore.png'
+            },
     ],
     setConfig: function(key, value) {
         this.config[key] = value;
