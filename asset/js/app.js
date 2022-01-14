@@ -113,7 +113,7 @@ const app = {
             },
             {
                 name: 'Kiss me more',
-                singer: 'Đen Vâu',
+                singer: 'Doja Cat',
                 path: './asset/song/Kiss Me More.mp3',
                 img: './asset/img/kissmemore.png'
             },
