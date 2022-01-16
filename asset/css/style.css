@@ -45,6 +45,7 @@ html {
   width: 100%;
   max-width: 480px;
   border-bottom: 1px solid #ebebeb;
+  z-index: 1;
 }
 
 /* HEADER */
@@ -118,18 +119,23 @@ header h2 {
 
 .progress {
   width: 100%;
-  -webkit-appearance: none;
-  height: 10px;
   outline: none;
   border: 1px solid #ccc;
   border-radius: 20px;
-  background-color: transparent;
   opacity: 0.7;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
   cursor: pointer;
   margin: 8px 0;
   z-index: 2;
+  appearance: none;
+  background-color: #fff;
+}
+
+.progress::-webkit-slider-runnable-track {
+  width: 300px;
+  border: none;
+  border-radius: 3px;
 }
 
 .progress-line {
@@ -137,21 +143,16 @@ header h2 {
   left: 0;
   height: 10px;
   border-radius: 8px;
-  background-color: #33da6d;
+  background-color: var(--primary-color);
 }
 
 .progress::-webkit-slider-thumb {
-  -webkit-appearance: none;
   appearance: none;
   width: 14px;
   height: 14px;
   background-color: var(--primary-color);
   cursor: pointer;
-  border-radius: 50%;
-}
-
-.progress::-webkit-slider-runnable-track {
-  background-color: transparent;
+  border-radius: 100%;
 }
 
 /* PLAYLIST */

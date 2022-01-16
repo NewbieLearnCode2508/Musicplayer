@@ -181,8 +181,12 @@ const app = {
         }
 
         //Nhấn backspace để tạm ngưng
-        window.onkeyup = (e)=> {
+        window.onkeypress = (e)=> {
+            e.preventDefault();
             if(e.keyCode === 32) {
+                if(e.target == document.body) {
+                    e.preventDefault();
+                }
                 if(_this.isPlay === true) {
                     playBtn.click();
                 }else {
@@ -200,20 +204,33 @@ const app = {
             }
         }
 
-        processPlay.onchange = (e)=> {
-            const seekTime = (audio.duration / 100) * e.target.value
-            audio.currentTime = seekTime;
+        processPlay.oninput = function() {
+            progressLine.style.width = processPlay.value + '%';
+            audio.pause();
+        }
+
+        processPlay.onclick = (e) => {
+            processPlay.onchange = (e)=> {
+                const seekTime = (audio.duration / 100) * e.target.value
+                audio.currentTime = seekTime;
+                if(_this.isPlay) {
+                    audio.play();
+                }else {
+                    _this.playSong();
+                    cdThumbAnimate.play();
+                }
+            }
         }
 
         //Xử lý nhấn tua bài hát
         window.onkeydown = (e)=> {
             if(e.keyCode === 39) {
-                const seekTime =    audio.currentTime + 10;
+                const seekTime = audio.currentTime + 10;
                 audio.currentTime = seekTime;
             }
 
             if(e.keyCode === 37) {
-                let seekTime =    audio.currentTime - 10;
+                let seekTime = audio.currentTime - 10;
                 if(seekTime < 0) {
                     seekTime = 0;
                 }
@@ -228,14 +245,10 @@ const app = {
             }else{
                 _this.nextSong();
             }
-
-            audio.play();
+            _this.playSong();
             cdThumbAnimate.play();
-            player.classList.add('playing');
             _this.render();
             _this.scrollToActiveSong();
-            _this.isPlay = !_this.isPlay;
-
         }
     
         prevBtn.onclick = ()=> {
@@ -245,11 +258,9 @@ const app = {
                 _this.prevSong();
             }
             _this.loadCurrentSong();
-            audio.play();
-            _this.isPlay = true;
+            _this.playSong();
             cdThumbAnimate.play();
-            player.classList.add('playing');
-
+            _this.scrollToActiveSong();
             _this.render();
         }
         
@@ -285,10 +296,8 @@ const app = {
                 if(songNode) {
                     _this.currentIndex = Number(songNode.getAttribute('data-index'));
                     _this.loadCurrentSong();    
-                    audio.play();
-                    _this.isPlay = true;
+                    _this.playSong();
                     cdThumbAnimate.play();
-                    player.classList.add('playing');
                     _this.render();
                 }
             }
@@ -309,6 +318,11 @@ const app = {
                audio.muted = false;
             }
         }
+    },
+    playSong: function() {
+        audio.play();
+        this.isPlay = true;
+        player.classList.add('playing');
     },
     setVolume: function(currentVolume) {
         audio.volume = Number(currentVolume) / 100;
