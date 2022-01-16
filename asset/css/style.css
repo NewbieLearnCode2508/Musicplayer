@@ -270,6 +270,12 @@ header h2 {
   .progress {
     height: 20px;
   }
+  
+#volume {
+  opacity: 1;
+  width: 44%;
+  pointer-events: none;
+}
 
   .progress::-webkit-slider-thumb {
     width: 24px;
